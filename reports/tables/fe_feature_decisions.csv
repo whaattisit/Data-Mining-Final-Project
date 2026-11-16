@@ -1,0 +1,41 @@
+feature,type,new feature,status,reason
+author_num_games_owned,log,False,kept,selected by RFECV
+author_num_reviews,log,False,kept,selected by RFECV
+author_playtime_at_review,log,False,kept,selected by RFECV
+word_count,log,True,removed,"redundant with char_count (rho = 0.99), lower mutual information"
+char_count,log,True,kept,selected by RFECV
+exclamation_count,log,True,kept,selected by RFECV
+question_count,log,True,kept,selected by RFECV
+negation_count,log,True,kept,selected by RFECV
+reviews_per_game_owned,log,True,kept,selected by RFECV
+review_age_days,log,True,kept,selected by RFECV
+avg_word_length,linear,True,kept,selected by RFECV
+uppercase_ratio,linear,True,kept,selected by RFECV
+negation_ratio,linear,True,removed,"redundant with negation_count (rho = 0.97), lower mutual information"
+missing_author_num_games_owned,missing,False,removed,quasi-constant (top value share 100.00%)
+missing_author_num_reviews,missing,False,removed,quasi-constant (top value share 100.00%)
+missing_author_playtime_at_review,missing,False,removed,quasi-constant (top value share 100.00%)
+steam_purchase,binary,False,kept,selected by RFECV
+received_for_free,binary,False,kept,selected by RFECV
+written_during_early_access,binary,False,kept,selected by RFECV
+has_formatting,binary,True,kept,selected by RFECV
+review_clean,text,False,kept,"TF-IDF uni+bigrams (100,000 terms) -> chi² top all terms"
+app_name,categorical,False,kept,"one-hot, improves validation F1-macro"
+playtime_ratio,candidate,True,removed,leakage: author_playtime_forever is measured after the review
+was_edited,candidate,True,removed,leakage: an edit happens after publication
+log_votes_helpful,candidate,True,removed,leakage: votes are given by other users after publication
+log_comment_count,candidate,True,removed,leakage: comments appear after publication
+days_since_last_played,candidate,True,removed,leakage: describes behaviour after the review
+review,text,False,removed,"original text: used only to derive exclamation_count, question_count, uppercase_ratio and has_formatting; the model uses review_clean"
+created_at,date,False,removed,used only to derive review_age_days
+votes_helpful,original,False,removed,"leakage: available only after publication (notebook 01, section 3.9)"
+votes_funny,original,False,removed,"leakage: available only after publication (notebook 01, section 3.9)"
+weighted_vote_score,original,False,removed,"leakage: available only after publication (notebook 01, section 3.9)"
+comment_count,original,False,removed,"leakage: available only after publication (notebook 01, section 3.9)"
+author_playtime_forever,original,False,removed,"leakage: available only after publication (notebook 01, section 3.9)"
+author_playtime_last_two_weeks,original,False,removed,"leakage: available only after publication (notebook 01, section 3.9)"
+updated_at,original,False,removed,"leakage: available only after publication (notebook 01, section 3.9)"
+last_played_at,original,False,removed,"leakage: available only after publication (notebook 01, section 3.9)"
+review_id,identifier,False,removed,"identifier, no predictive meaning"
+author_steamid,identifier,False,removed,"identifier, no predictive meaning"
+app_id,identifier,False,removed,"identifier, no predictive meaning"
