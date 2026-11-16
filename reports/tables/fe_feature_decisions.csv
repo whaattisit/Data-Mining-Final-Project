@@ -1,25 +1,25 @@
 feature,type,new feature,status,reason
-author_num_games_owned,log,False,kept,selected by RFECV
-author_num_reviews,log,False,kept,selected by RFECV
-author_playtime_at_review,log,False,kept,selected by RFECV
+author_num_games_owned,log,False,removed,eliminated by RFE with the 1-SE rule (rank 5)
+author_num_reviews,log,False,removed,eliminated by RFE with the 1-SE rule (rank 2)
+author_playtime_at_review,log,False,kept,selected by RFECV (1-SE rule)
 word_count,log,True,removed,"redundant with char_count (rho = 0.99), lower mutual information"
-char_count,log,True,kept,selected by RFECV
-exclamation_count,log,True,kept,selected by RFECV
-question_count,log,True,kept,selected by RFECV
-negation_count,log,True,kept,selected by RFECV
-reviews_per_game_owned,log,True,kept,selected by RFECV
-review_age_days,log,True,kept,selected by RFECV
-avg_word_length,linear,True,kept,selected by RFECV
-uppercase_ratio,linear,True,kept,selected by RFECV
+char_count,log,True,kept,selected by RFECV (1-SE rule)
+exclamation_count,log,True,kept,selected by RFECV (1-SE rule)
+question_count,log,True,kept,selected by RFECV (1-SE rule)
+negation_count,log,True,kept,selected by RFECV (1-SE rule)
+reviews_per_game_owned,log,True,removed,eliminated by RFE with the 1-SE rule (rank 3)
+review_age_days,log,True,kept,selected by RFECV (1-SE rule)
+avg_word_length,linear,True,removed,eliminated by RFE with the 1-SE rule (rank 4)
+uppercase_ratio,linear,True,kept,selected by RFECV (1-SE rule)
 negation_ratio,linear,True,removed,"redundant with negation_count (rho = 0.97), lower mutual information"
 missing_author_num_games_owned,missing,False,removed,quasi-constant (top value share 100.00%)
 missing_author_num_reviews,missing,False,removed,quasi-constant (top value share 100.00%)
 missing_author_playtime_at_review,missing,False,removed,quasi-constant (top value share 100.00%)
-steam_purchase,binary,False,kept,selected by RFECV
-received_for_free,binary,False,kept,selected by RFECV
-written_during_early_access,binary,False,kept,selected by RFECV
-has_formatting,binary,True,kept,selected by RFECV
-review_clean,text,False,kept,"TF-IDF uni+bigrams (100,000 terms) -> chi² top all terms"
+steam_purchase,binary,False,kept,selected by RFECV (1-SE rule)
+received_for_free,binary,False,kept,selected by RFECV (1-SE rule)
+written_during_early_access,binary,False,kept,selected by RFECV (1-SE rule)
+has_formatting,binary,True,kept,selected by RFECV (1-SE rule)
+review_clean,text,False,kept,"TF-IDF uni+bigrams, all 100,000 terms kept (chi² selection did not improve validation F1-macro)"
 app_name,categorical,False,kept,"one-hot, improves validation F1-macro"
 playtime_ratio,candidate,True,removed,leakage: author_playtime_forever is measured after the review
 was_edited,candidate,True,removed,leakage: an edit happens after publication
