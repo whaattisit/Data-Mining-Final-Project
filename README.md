@@ -5,7 +5,7 @@ Data Mining — Final Project · Project type: **Text Mining** (binary classific
 ## Team
 | Member | Contribution |
 |---|---|
-| Bekzat Temirbolat | Part 1, sections 1–3: problem definition, dataset description, data preprocessing |
+| Tursun Amina, Myrzakassymov Azizkhan, Shynybek Almira | Part 1, sections 1–3: problem definition, dataset description, data preprocessing |
 
 ## Problem
 Every Steam review has a binary label chosen by its author — *Recommended* or *Not recommended* — and free text. The project builds a model that predicts the recommendation from the text (plus a few reviewer attributes known at the moment of writing) and explains which words and player properties signal a negative review. Such a model lets developers find negative feedback in large volumes of reviews and can be transferred to unlabelled feedback (forums, social media, support tickets).
